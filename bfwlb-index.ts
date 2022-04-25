@@ -2,7 +2,6 @@ import DJS, { Intents } from "discord.js"
 import dotenv from 'dotenv'
 import WOK from 'wokcommands'
 import path from 'path'
-import profileModel from './models/profile-schema';
 dotenv.config();
 
 const client = new DJS.Client({
