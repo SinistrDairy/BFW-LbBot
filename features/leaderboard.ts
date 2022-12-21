@@ -1,10 +1,11 @@
-import { Client, MessageEmbed, TextChannel } from "discord.js"
+import { Client, MessageEmbed, TextChannel} from "discord.js"
 import lbSchema from "../models/lb-schema"
 import house from "../models/profile-schema"
 
 const secondConvert = 60
 let timer = 1000 * secondConvert
 let seconds = 1
+
 
 
 const fetchTopMembers = async (guildID: any) => {
@@ -19,16 +20,16 @@ const fetchTopMembers = async (guildID: any) => {
 
     for(let counter = 0; counter < results.length; ++counter){
         const{houseName, points} = results[counter]
-
         importantData += `**#${counter + 1})** House ${houseName} with **${points}** points\n`
     }
 
     const impData = new MessageEmbed()
         .setColor('GOLD')
-        .setTitle(`__Welcome to the Battle Leaderboard!__`)
-        .setDescription(`You've stepped up to the battlements with your house banners flown proudly at your back, but how does your Great House fair so far...`)
-        .addField(`**Let's take a look at the War standings:**`, `${importantData}`)
-        .setFooter({ text: `Updating in 60s` })
+        .setTitle(`__Welcome to the Wizarding Academy School Standings__`)
+        .setDescription(`You've been giving it your best, it's time to see how you fair against the rest...`)
+        .addField(`**The standings are as follows:**`, `${importantData}`)
+        .setFooter({ text: `Updating in 60s...`})
+        .setTimestamp(Date.now())
 
     return impData
 
@@ -40,6 +41,7 @@ const updateLeaderboard = async (client: Client) => {
     for(const result of results){
         const {_id, channelID} = result
 
+        const topMembers = await fetchTopMembers(_id)
         const guild = client.guilds.cache.get(_id)
         if(guild){
             const channel = guild.channels.cache.get(channelID) as TextChannel
@@ -47,24 +49,25 @@ const updateLeaderboard = async (client: Client) => {
             if(channel){
                 const findMessage = await channel.messages.fetch()
                 const firstMessage = findMessage.first()
-                const topMembers = await fetchTopMembers(_id)
 
                 if(firstMessage){
                     firstMessage.edit({embeds: [topMembers]})
+
                 }else {
                     channel.send({embeds: [topMembers]})
                 }
             }
         }
     }
-    
+
     setTimeout (()=>{
         updateLeaderboard(client)
     },timer * seconds)
 }
 
 export default async (client: Client) => {
-    await updateLeaderboard(client)    
+    await updateLeaderboard(client)
+
 }
 
 export const config = {

@@ -1,4 +1,4 @@
-import DJS, { Intents } from "discord.js"
+import DJS, { Client, Intents } from "discord.js"
 import dotenv from 'dotenv'
 import WOK from 'wokcommands'
 import path from 'path'
@@ -20,7 +20,7 @@ client.on('ready', async () =>{
   }
 
 
-    new WOK (client, {
+    new WOK (client,  {
         commandsDir: path.join(__dirname, 'commands'),
         featuresDir: path.join(__dirname, 'features'),
         typeScript: false,

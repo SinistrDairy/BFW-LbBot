@@ -32,23 +32,24 @@ const fetchTopMembers = (guildID) => __awaiter(void 0, void 0, void 0, function*
     }
     const impData = new discord_js_1.MessageEmbed()
         .setColor('GOLD')
-        .setTitle(`__Welcome to the Battle Leaderboard!__`)
-        .setDescription(`You've stepped up to the battlements with your house banners flown proudly at your back, but how does your Great House fair so far...`)
-        .addField(`**Let's take a look at the War standings:**`, `${importantData}`)
-        .setFooter({ text: `Updating in 60s` });
+        .setTitle(`__Welcome to the Wizarding Academy School Standings__`)
+        .setDescription(`You've been giving it your best, it's time to see how you fair against the rest...`)
+        .addField(`**The standings are as follows:**`, `${importantData}`)
+        .setFooter({ text: `Updating in 60s...` })
+        .setTimestamp(Date.now());
     return impData;
 });
 const updateLeaderboard = (client) => __awaiter(void 0, void 0, void 0, function* () {
     const results = yield lb_schema_1.default.find({});
     for (const result of results) {
         const { _id, channelID } = result;
+        const topMembers = yield fetchTopMembers(_id);
         const guild = client.guilds.cache.get(_id);
         if (guild) {
             const channel = guild.channels.cache.get(channelID);
             if (channel) {
                 const findMessage = yield channel.messages.fetch();
                 const firstMessage = findMessage.first();
-                const topMembers = yield fetchTopMembers(_id);
                 if (firstMessage) {
                     firstMessage.edit({ embeds: [topMembers] });
                 }
