@@ -56,7 +56,7 @@ client.on('ready', () => __awaiter(void 0, void 0, void 0, function* () {
         featuresDir: path_1.default.join(__dirname, 'features'),
         typeScript: false,
         botOwners: ['239426866157453313'],
-        testServers: ['966738616044892220'],
+        testServers: ['904482170024919051'],
         mongoUri: 'mongodb+srv://SinistrDairy:rjg2xeNAVUDu9mlR@bfw-lb.dsook.mongodb.net/bfw-lb?retryWrites=true&w=majority',
         dbOptions
     });
