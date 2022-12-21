@@ -29,7 +29,6 @@ const fetchTopMembers = async (guildID: any) => {
         .setDescription(`You've stepped up to the battlements with your house banners flown proudly at your back, but how does your Great House fair so far...`)
         .addField(`**Let's take a look at the War standings:**`, `${importantData}`)
         .setFooter({ text: `Updating in 60s` })
-        .setTimestamp()
 
     return impData
 

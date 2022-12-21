@@ -35,8 +35,7 @@ const fetchTopMembers = (guildID) => __awaiter(void 0, void 0, void 0, function*
         .setTitle(`__Welcome to the Battle Leaderboard!__`)
         .setDescription(`You've stepped up to the battlements with your house banners flown proudly at your back, but how does your Great House fair so far...`)
         .addField(`**Let's take a look at the War standings:**`, `${importantData}`)
-        .setFooter({ text: `Updating in 60s` })
-        .setTimestamp();
+        .setFooter({ text: `Updating in 60s` });
     return impData;
 });
 const updateLeaderboard = (client) => __awaiter(void 0, void 0, void 0, function* () {
