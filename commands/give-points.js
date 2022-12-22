@@ -52,8 +52,6 @@ exports.default = {
                 .addField(`**Mentioned house**`, `${house}`)
                 .setTimestamp();
             interaction.editReply({ embeds: [errEmbed] });
-            yield new Promise(resolve => setTimeout(resolve, 1000 * 10));
-            interaction.deleteReply();
             return;
         }
         else {
@@ -73,8 +71,6 @@ exports.default = {
                 .addField(`**New Total**`, `${newAmt}`, true)
                 .setTimestamp();
             interaction.editReply({ embeds: [succEmbed] });
-            yield new Promise(resolve => setTimeout(resolve, 1000 * 10));
-            interaction.deleteReply();
             return;
         }
     })

@@ -1,7 +1,6 @@
-import { GuildMember, MessageEmbed } from "discord.js";
+import { MessageEmbed } from "discord.js";
 import { ICommand } from "wokcommands";
 import houseSchema from "../models/profile-schema";
-
 export default{
     category: 'Points',
     description: 'Use this command to give a house some points',
@@ -46,10 +45,8 @@ export default{
             .addField(`**Mentioned house**`, `${house}`)
             .setTimestamp()
             
-            interaction.editReply({embeds: [errEmbed]})
+            interaction.editReply({ embeds: [errEmbed]})
     
-            await new Promise(resolve => setTimeout(resolve, 1000 * 10))
-            interaction.deleteReply()
             return
         }else{
             
@@ -74,14 +71,7 @@ export default{
             .setTimestamp()
             
             interaction.editReply({embeds: [succEmbed]})
-    
-            await new Promise(resolve => setTimeout(resolve, 1000 * 10))
-            interaction.deleteReply()
             return
         }
-
-
-              
-        
     }
 }as ICommand
