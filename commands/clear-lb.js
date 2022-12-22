@@ -51,8 +51,8 @@ exports.default = {
         const clearLB = new discord_js_1.MessageEmbed()
             .setColor('GREEN')
             .setTitle(`**SUCCESS**`)
-            .setDescription(`**You've cleared the following houses and their points**`)
-            .addField(`**Mentioned House**`, `${hNames}`, true)
+            .setDescription(`**You've cleared the following schools and their points**`)
+            .addField(`**Mentioned School**`, `${hNames}`, true)
             .addField(`**Previous Points**`, `${hPoints}`, true)
             .addField(`**New Points**`, `${newAmt}`, true)
             .setTimestamp();

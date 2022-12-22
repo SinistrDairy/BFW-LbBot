@@ -3,9 +3,9 @@ import { ICommand } from "wokcommands";
 import house from "../models/profile-schema";
 
 export default {
-    name: 'add-house',
-    category: 'Houses',
-    description: `Use this command to add a new house.`,
+    name: 'add-school',
+    category: 'Schools',
+    description: `Use this command to add a new school.`,
     aliases: [''],
     slash: true,
     testOnly: true,
@@ -15,7 +15,7 @@ export default {
         {
             type: 'STRING',
             name: 'house',
-            description: `Which house?`,
+            description: `Which school?`,
             required: true
         }
     ],

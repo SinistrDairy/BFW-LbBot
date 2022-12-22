@@ -3,7 +3,7 @@ import { ICommand } from "wokcommands";
 import houseSchema from "../models/profile-schema";
 export default{
     category: 'Points',
-    description: 'Use this command to give a house some points',
+    description: 'Use this command to give a school some points',
     name: 'give-points',
     testOnly: true,
     slash: true,
@@ -16,7 +16,7 @@ export default{
         {
             type: 'STRING',
             name: 'house',
-            description: `Which house?`,
+            description: `Which school?`,
             required: true
         },
         {
@@ -42,7 +42,7 @@ export default{
             .setColor('RED')
             .setTitle(`**ERROR**`)
             .setDescription(`**PLEASE NAME A CORRECT TARGET**`)
-            .addField(`**Mentioned house**`, `${house}`)
+            .addField(`**Mentioned school**`, `${house}`)
             .setTimestamp()
             
             interaction.editReply({ embeds: [errEmbed]})
@@ -65,7 +65,7 @@ export default{
             .setColor('GREEN')
             .setTitle(`**SUCCESS**`)
             .setDescription(`**You've completed the following**`)
-            .addField(`**Mentioned House**`, `${house}`, true)
+            .addField(`**Mentioned school**`, `${house}`, true)
             .addField(`**Points Given**`, `${points}`, true)
             .addField(`**New Total**`,`${newAmt}`, true)
             .setTimestamp()

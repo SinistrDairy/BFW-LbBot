@@ -16,7 +16,7 @@ const discord_js_1 = require("discord.js");
 const profile_schema_1 = __importDefault(require("../models/profile-schema"));
 exports.default = {
     category: 'Points',
-    description: 'Use this command to give a house some points',
+    description: 'Use this command to give a school some points',
     name: 'give-points',
     testOnly: true,
     slash: true,
@@ -28,7 +28,7 @@ exports.default = {
         {
             type: 'STRING',
             name: 'house',
-            description: `Which house?`,
+            description: `Which school?`,
             required: true
         },
         {
@@ -49,7 +49,7 @@ exports.default = {
                 .setColor('RED')
                 .setTitle(`**ERROR**`)
                 .setDescription(`**PLEASE NAME A CORRECT TARGET**`)
-                .addField(`**Mentioned house**`, `${house}`)
+                .addField(`**Mentioned school**`, `${house}`)
                 .setTimestamp();
             interaction.editReply({ embeds: [errEmbed] });
             return;
@@ -66,7 +66,7 @@ exports.default = {
                 .setColor('GREEN')
                 .setTitle(`**SUCCESS**`)
                 .setDescription(`**You've completed the following**`)
-                .addField(`**Mentioned House**`, `${house}`, true)
+                .addField(`**Mentioned school**`, `${house}`, true)
                 .addField(`**Points Given**`, `${points}`, true)
                 .addField(`**New Total**`, `${newAmt}`, true)
                 .setTimestamp();

@@ -20,7 +20,7 @@ const fetchTopMembers = async (guildID: any) => {
 
     for(let counter = 0; counter < results.length; ++counter){
         const{houseName, points} = results[counter]
-        importantData += `**#${counter + 1})** House ${houseName} with **${points}** points\n`
+        importantData += `**#${counter + 1})**${houseName} with **${points}** points\n`
     }
 
     const impData = new MessageEmbed()
@@ -28,7 +28,7 @@ const fetchTopMembers = async (guildID: any) => {
         .setTitle(`__Welcome to the Wizarding Academy School Standings__`)
         .setDescription(`You've been giving it your best, it's time to see how you fair against the rest...`)
         .addField(`**The standings are as follows:**`, `${importantData}`)
-        .setFooter({ text: `Updating in 60s...`})
+        .setFooter('Updating in 60s...')
         .setTimestamp(Date.now())
 
     return impData

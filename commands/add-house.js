@@ -14,9 +14,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const profile_schema_1 = __importDefault(require("../models/profile-schema"));
 exports.default = {
-    name: 'add-house',
-    category: 'Houses',
-    description: `Use this command to add a new house.`,
+    name: 'add-school',
+    category: 'Schools',
+    description: `Use this command to add a new school.`,
     aliases: [''],
     slash: true,
     testOnly: true,
@@ -26,7 +26,7 @@ exports.default = {
         {
             type: 'STRING',
             name: 'house',
-            description: `Which house?`,
+            description: `Which school?`,
             required: true
         }
     ],
