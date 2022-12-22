@@ -29,7 +29,7 @@ const fetchTopMembers = (guildID) => __awaiter(void 0, void 0, void 0, function*
     }).limit(6);
     for (let counter = 0; counter < results.length; ++counter) {
         const { houseName, points } = results[counter];
-        importantData += `**#${counter + 1})**${houseName} with **${points}** points\n`;
+        importantData += `**#${counter + 1})** ${houseName} with **${points}** points\n`;
     }
     const impData = new discord_js_1.MessageEmbed()
         .setColor('GOLD')
