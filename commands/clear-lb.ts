@@ -21,7 +21,7 @@ export default {
         const collectPoints = []
         let hNames = ''
         let hPoints = ''
-        let newAmt = `0\n 0\n 0\n 0\n 0\n 0\n`
+        let newAmt = `0`
 
         for (let counter = 0; counter < results.length; ++counter){
             const {houseName, points} = results[counter]
@@ -42,6 +42,7 @@ export default {
 
         collectNames.forEach((element: any) => {
             hNames += `${element}\n`
+            newAmt += `0\n`
         })
         collectPoints.forEach((element: any) => {
             hPoints += `${element}\n`
