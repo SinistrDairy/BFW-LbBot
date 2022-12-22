@@ -24,7 +24,8 @@ const fetchTopMembers = (guildID) => __awaiter(void 0, void 0, void 0, function*
     const results = yield profile_schema_1.default.find({
         serverID: guildID,
     }).sort({
-        points: -1
+        points: -1,
+        houseName: 1
     }).limit(6);
     for (let counter = 0; counter < results.length; ++counter) {
         const { houseName, points } = results[counter];
