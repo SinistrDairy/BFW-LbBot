@@ -21,7 +21,7 @@ export default {
         const collectPoints = []
         let hNames = ''
         let hPoints = ''
-        let newAmt = `0`
+        let newAmt = ``
 
         for (let counter = 0; counter < results.length; ++counter){
             const {houseName, points} = results[counter]
